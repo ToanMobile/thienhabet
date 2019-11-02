@@ -1,4 +1,4 @@
-package com.thienhabet.ltd
+package com.thienha.thaku
 
 import io.flutter.app.FlutterApplication
 import android.content.Context
