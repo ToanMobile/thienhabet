@@ -557,7 +557,7 @@ class StylesText {
 class Config {
   //App Font
   static const String defaultFont = "Roboto";
-  static const linkHome = 'https://thienha2.com';
+  static const linkHome = 'https://thienha2.com/home';
   static const linkHomeSupport = 'https://thienha2.com/hotro';
   static bool screenHome = true;
   static String linkUrl = '';
