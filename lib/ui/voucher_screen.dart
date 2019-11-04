@@ -157,7 +157,7 @@ class VoucherState extends State<Voucher> {
         (tkController.text.length > 3 && tkController.text.length < 11);
     if (isNameInputValid && isSdtInputValid && isTKInputValid) {
       setSendData(false);
-      LService.saveSignUp(nameController.text.toString(), sdtController.text.toString(), tkController.text.toString()).then((value) {
+      LService.sendVoucher(nameController.text.toString(), sdtController.text.toString(), tkController.text.toString()).then((value) {
         print('then===' + value.toString());
         if (value) {
           showDone(context, true);

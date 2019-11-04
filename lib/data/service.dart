@@ -1,6 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:http/http.dart' as http;
 import 'package:googleapis/sheets/v4.dart' as sheets;
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:intl/intl.dart';
+import 'package:thienhabet.ltd/data/post_voucher_entity.dart';
 
 import 'state.dart';
 
@@ -27,6 +32,26 @@ class LService {
   static final RANGE_SIGN_UP = 'ThienhaBet!A2:D2';
   static final RANGE_ORDER = 'orders!A1:Q30';
   static final RANGE_MENU = 'menu!A1:Q30';
+
+  static Future<bool> sendVoucher(String name, String sdt, String tk) async {
+    var client = new http.Client();
+    var isPush = false;
+    try {
+      var time = DateFormat("dd-MM-yyyy hh:mm a").format(DateTime.now());
+      var voucher = PostVoucherEntity(fields: PostVoucherFields(time: time.trim(), name: name.trim(), phone: sdt.trim(), ku: tk.trim())).toJson();
+      var response = await client.post('https://api.airtable.com/v0/appXjuVsEcX2l4BvQ/Thienha',
+          headers: {HttpHeaders.contentTypeHeader: 'application/json', HttpHeaders.authorizationHeader: 'Bearer keyApYWfKig0i7Qy3'},
+          body: json.encode(voucher));
+      print(response.statusCode);
+      if (response.statusCode == 200)
+        isPush = true;
+      else
+        isPush = false;
+    } finally {
+      client.close();
+    }
+    return isPush;
+  }
 
   static Future<bool> saveSignUp(String name, String sdt, String tk) async {
     var client = await clientViaServiceAccount(_CREDENTIALS, _SCOPES);
@@ -165,11 +190,7 @@ class LService {
     });
 
     sheets.ValueRange range = new sheets.ValueRange();
-    range.range = 'orders!B' +
-        LState.userRow.toString() +
-        ':' +
-        String.fromCharCode(LState.orders.keys.length + 65) +
-        LState.userRow.toString();
+    range.range = 'orders!B' + LState.userRow.toString() + ':' + String.fromCharCode(LState.orders.keys.length + 65) + LState.userRow.toString();
     print(range.range);
     List<String> order = new List();
     for (int i = 1; i <= LState.orders.keys.length; i++) {
