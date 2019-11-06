@@ -1,4 +1,4 @@
-package com.thienha.thaku
+package com.ku_app
 
 import io.flutter.app.FlutterApplication
 import android.content.Context

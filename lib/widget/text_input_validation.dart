@@ -30,6 +30,7 @@ class TextInputValidation extends StatefulWidget {
 class _TextInputValidationState extends State<TextInputValidation> {
   @override
   Widget build(BuildContext context) {
+    print('_TextInputValidationState='+widget.validateErrMsg +'isInputValid=='+ widget.isInputValid.toString());
     if (widget.isInputValid) {
       return _buildTextField();
     }

@@ -1,9 +1,8 @@
 package io.flutter.plugins;
 
 import io.flutter.plugin.common.PluginRegistry;
-import com.dexterous.flutterlocalnotifications.FlutterLocalNotificationsPlugin;
-import io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin;
 import com.flutter_webview_plugin.FlutterWebviewPlugin;
+
 /**
  * Generated file. Do not edit.
  */
@@ -12,8 +11,6 @@ public final class GeneratedPluginRegistrant {
     if (alreadyRegisteredWith(registry)) {
       return;
     }
-    FlutterLocalNotificationsPlugin.registerWith(registry.registrarFor("com.dexterous.flutterlocalnotifications.FlutterLocalNotificationsPlugin"));
-    SharedPreferencesPlugin.registerWith(registry.registrarFor("io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin"));
     FlutterWebviewPlugin.registerWith(registry.registrarFor("com.flutter_webview_plugin.FlutterWebviewPlugin"));
   }
 

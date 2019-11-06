@@ -23,11 +23,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   flutter_launcher_icons: ^0.7.4
-  googleapis: ^0.54.0
-  googleapis_auth: ^0.2.10
-  shared_preferences: ^0.5.3+4
   intl: ^0.16.0
-  flutter_local_notifications: ^0.8.4
   flutter_webview_plugin: ^0.3.8
   http: ^0.12.0+2
 

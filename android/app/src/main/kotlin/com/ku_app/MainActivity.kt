@@ -1,4 +1,4 @@
-package com.thienha.thaku
+package com.ku_app
 
 import android.os.Bundle
 

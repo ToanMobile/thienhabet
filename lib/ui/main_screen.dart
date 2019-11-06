@@ -97,7 +97,8 @@ class MainState extends State<Main> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text("Thiên Hạ"),
+          backgroundColor: Colors.white,
+          title: Text("Thiên Hạ", style: StylesText.bodyRegularLeftBlack17pt,),
         ),
         body: _getBottomItemWidget(_selectedBottomIndex),
         bottomNavigationBar: BottomNavigationBar(

@@ -14,8 +14,9 @@ class HomeRssState extends State<HomeRssScreen> {
   @override
   Widget build(BuildContext context) {
     Config.screenHome = true;
-    return Container(
-      child: Center(
+    return Scaffold(
+      backgroundColor: MyColors.colorPrimary,
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,

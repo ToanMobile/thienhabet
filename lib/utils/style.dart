@@ -53,7 +53,7 @@ class UIData {
 }
 
 class MyColors {
-  static const colorPrimary = const Color(0xff021A30);
+  static const colorPrimary = const Color(0xff01233F);
   static const slate = const Color(0xff4e586e);
   static const dark = const Color(0xff242a37);
   static const deepSkyBlue = const Color(0xff007aff);
@@ -557,7 +557,7 @@ class StylesText {
 class Config {
   //App Font
   static const String defaultFont = "Roboto";
-  static const linkHome = 'https://thienha2.com/home';
+  static const linkHome = 'https://thienha2.com/home/';
   static const linkHomeSupport = 'https://thienha2.com/hotro';
   static bool screenHome = true;
   static String linkUrl = '';

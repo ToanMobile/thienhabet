@@ -13,6 +13,7 @@ class VoucherState extends State<Voucher> {
   bool isNameInputValid = true, isSdtInputValid = true, isTKInputValid = true;
   String nameInputValidateErr = "", sdtInputValidateErr = "", tkInputValidateErr = "";
   bool _isDone = true;
+  bool _isValid = true;
 
   TextEditingController nameController = new TextEditingController(),
       sdtController = new TextEditingController(),
@@ -20,6 +21,10 @@ class VoucherState extends State<Voucher> {
 
   void setSendData(bool isDone) {
     setState(() => this._isDone = isDone);
+  }
+
+  void setValidData(bool isDone) {
+    setState(() => this._isValid = isDone);
   }
 
   @override
@@ -158,7 +163,6 @@ class VoucherState extends State<Voucher> {
     if (isNameInputValid && isSdtInputValid && isTKInputValid) {
       setSendData(false);
       LService.sendVoucher(nameController.text.toString(), sdtController.text.toString(), tkController.text.toString()).then((value) {
-        print('then===' + value.toString());
         if (value) {
           showDone(context, true);
         } else {
@@ -171,6 +175,7 @@ class VoucherState extends State<Voucher> {
     } else {
       showEmty(context);
     }
+    setValidData(false);
   }
 
   String getNameValidateErrMsg() {
